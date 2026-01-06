@@ -20,8 +20,8 @@ jobs:
           chmod +x ./gradlew
           ls -l ./gradlew # 验证执行权限
 
-      - name: Specify Gradle version (fix compatibility)
-        run: ./gradlew wrapper --gradle-version 7.5 --distribution-type all
+      - name: Upgrade Gradle to 8.13 (match project requirement)
+        run: ./gradlew wrapper --gradle-version 8.13 --distribution-type all
 
       - name: Build APK (skip unit tests only)
         run: ./gradlew assembleRelease -x test --warning-mode all
